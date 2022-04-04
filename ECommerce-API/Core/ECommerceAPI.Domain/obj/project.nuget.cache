@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Olkubhp2xds+kfiNYDNhcM3Povs4uwcTnJUpJyzEksH+WU0eQ3shPsDHTnnzdzXCl8gt64S+OZlLl4bqfem05w==",
+  "dgSpecHash": "a0farUT0/l0LhF+bp6eA//qTmqls8JaLeaUffCY9aCzu5kvsAwPPMmFOQL2+ofyvULHged+AL3KfPm/NRPc+GQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ramis\\Desktop\\E-Ticaret\\ECommerce-API\\Core\\ECommerceAPI.Domain\\ECommerceAPI.Domain.csproj",
+  "projectFilePath": "C:\\Users\\ramis\\Desktop\\MyRepos\\ECommerce\\ECommerce-API\\Core\\ECommerceAPI.Domain\\ECommerceAPI.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

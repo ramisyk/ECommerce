@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "VH/En/IiTWHHltQKj4VS6bVQW5zla+wxk3DiZyrwbXv8TohA32Gtv409dR988ESpJLRzj/b6rfdpCPEFl4z2Aw==",
+  "dgSpecHash": "cDT5D4d9dIIyKZHAcgXnzdyKGXl1Q37TgNLLm0M/b7WYr6E4CBoYt4Aynb7dOSKmHW5/AMZIPRXEZyWDzpJgdg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ramis\\Desktop\\E-Ticaret\\ECommerce-API\\Infrastructure\\ECommerceAPI.Persistence\\ECommerceAPI.Persistence.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\ramis\\Desktop\\MyRepos\\ECommerce\\ECommerce-API\\Infrastructure\\ECommerceAPI.Persistence\\ECommerceAPI.Persistence.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ramis\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

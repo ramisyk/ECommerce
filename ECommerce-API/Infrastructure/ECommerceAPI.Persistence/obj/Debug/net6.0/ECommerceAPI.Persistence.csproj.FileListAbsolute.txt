@@ -1,0 +1,17 @@
+/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Infrastructure/ECommerceAPI.Persistence/bin/Debug/net6.0/ECommerceAPI.Persistence.deps.json
+/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Infrastructure/ECommerceAPI.Persistence/bin/Debug/net6.0/ECommerceAPI.Persistence.dll
+/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Infrastructure/ECommerceAPI.Persistence/bin/Debug/net6.0/ECommerceAPI.Persistence.pdb
+/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Infrastructure/ECommerceAPI.Persistence/bin/Debug/net6.0/ECommerceAPI.Application.dll
+/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Infrastructure/ECommerceAPI.Persistence/bin/Debug/net6.0/ECommerceAPI.Domain.dll
+/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Infrastructure/ECommerceAPI.Persistence/bin/Debug/net6.0/ECommerceAPI.Application.pdb
+/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Infrastructure/ECommerceAPI.Persistence/bin/Debug/net6.0/ECommerceAPI.Domain.pdb
+/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Infrastructure/ECommerceAPI.Persistence/obj/Debug/net6.0/ECommerceAPI.Persistence.csproj.AssemblyReference.cache
+/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Infrastructure/ECommerceAPI.Persistence/obj/Debug/net6.0/ECommerceAPI.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Infrastructure/ECommerceAPI.Persistence/obj/Debug/net6.0/ECommerceAPI.Persistence.AssemblyInfoInputs.cache
+/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Infrastructure/ECommerceAPI.Persistence/obj/Debug/net6.0/ECommerceAPI.Persistence.AssemblyInfo.cs
+/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Infrastructure/ECommerceAPI.Persistence/obj/Debug/net6.0/ECommerceAPI.Persistence.csproj.CoreCompileInputs.cache
+/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Infrastructure/ECommerceAPI.Persistence/obj/Debug/net6.0/ECommerceAPI.Persistence.csproj.CopyComplete
+/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Infrastructure/ECommerceAPI.Persistence/obj/Debug/net6.0/ECommerceAPI.Persistence.dll
+/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Infrastructure/ECommerceAPI.Persistence/obj/Debug/net6.0/refint/ECommerceAPI.Persistence.dll
+/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Infrastructure/ECommerceAPI.Persistence/obj/Debug/net6.0/ECommerceAPI.Persistence.pdb
+/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Infrastructure/ECommerceAPI.Persistence/obj/Debug/net6.0/ref/ECommerceAPI.Persistence.dll

@@ -8,14 +8,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace ECommerceAPI.Persistence
 {
     public static class ServiceRegistration
     {
         public static void AddPersistanceServices(this IServiceCollection services)
-        {
-            services.AddDbContext<ECommerceAPIDbContext>(options => options.UseNpgsql("User ID=postgres;Password=123456;Host=localhost;Port=5432;Database=ECommerceAPIDb;"));
+        {            
+            services.AddDbContext<ECommerceAPIDbContext>(options => options.UseNpgsql(Configuration.ConnectionString));
             services.AddSingleton<IProductService, ProductService>();
         }
     }

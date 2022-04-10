@@ -19,8 +19,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repositories\" />
-    <Folder Include="Repositories\Customer\" />
-    <Folder Include="Repositories\Order\" />
+    <Folder Include="Repositories\CustomerRepositories\" />
+    <Folder Include="Repositories\OrderRepositories\" />
     <Folder Include="Repositories\Product\" />
   </ItemGroup>
   <ItemGroup>

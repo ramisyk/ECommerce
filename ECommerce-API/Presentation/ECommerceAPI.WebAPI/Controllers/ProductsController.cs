@@ -1,5 +1,6 @@
-﻿using ECommerceAPI.Application.Abstractions;
+﻿ using ECommerceAPI.Application.Abstractions;
 using ECommerceAPI.Application.Repositories;
+using ECommerceAPI.Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,7 +22,7 @@ namespace ECommerceAPI.WebAPI.Controllers
         }
 
         [HttpGet]
-        public async void GetProduct()
+        public async Task GetProduct()
         {
             await _productWriteRepository.AddRangeAsync(new()
             {
@@ -33,6 +34,12 @@ namespace ECommerceAPI.WebAPI.Controllers
             });
 
             await _productWriteRepository.SaveAsync();
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(string id)
+        {
+            Product product = await _productReadRepository.GetByIdAsync(id);
+            return Ok(product);
         }
     }
 }

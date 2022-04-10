@@ -13,9 +13,15 @@
   <ItemGroup>
     <None Remove="Repositories\" />
     <None Remove="Microsoft.EntityFrameworkCore" />
+    <None Remove="Repositories\Customer\" />
+    <None Remove="Repositories\Customer %28kopyala%29\" />
+    <None Remove="Repositories\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repositories\" />
+    <Folder Include="Repositories\Customer\" />
+    <Folder Include="Repositories\Order\" />
+    <Folder Include="Repositories\Product\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.3" />

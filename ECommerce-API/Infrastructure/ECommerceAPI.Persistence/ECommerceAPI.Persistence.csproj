@@ -27,8 +27,14 @@
     <None Remove="Microsoft.Extensions.Configuration" />
     <None Remove="Microsoft.Extensions.Configuration.Json" />
     <None Remove="Repositories\" />
+    <None Remove="Repositories\Customer\" />
+    <None Remove="Repositories\OrderRepositories\" />
+    <None Remove="Repositories\ProductRepositories\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repositories\" />
+    <Folder Include="Repositories\CustomerRepositories\" />
+    <Folder Include="Repositories\OrderRepositories\" />
+    <Folder Include="Repositories\ProductRepositories\" />
   </ItemGroup>
 </Project>

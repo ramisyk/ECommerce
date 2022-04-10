@@ -26,5 +26,9 @@
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Microsoft.Extensions.Configuration" />
     <None Remove="Microsoft.Extensions.Configuration.Json" />
+    <None Remove="Repositories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repositories\" />
   </ItemGroup>
 </Project>

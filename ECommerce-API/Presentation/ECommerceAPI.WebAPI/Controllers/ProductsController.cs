@@ -24,16 +24,21 @@ namespace ECommerceAPI.WebAPI.Controllers
         [HttpGet]
         public async Task GetProduct()
         {
-            await _productWriteRepository.AddRangeAsync(new()
-            {
-                new() { Id = Guid.NewGuid(), Name = "Product 1", Price = 100, Stock = 10, CreatedDate = DateTime.UtcNow },
-                new() { Id = Guid.NewGuid(), Name = "Product 2", Price = 200, Stock = 10, CreatedDate = DateTime.UtcNow },
-                new() { Id = Guid.NewGuid(), Name = "Product 3", Price = 300, Stock = 10, CreatedDate = DateTime.UtcNow },
-                new() { Id = Guid.NewGuid(), Name = "Product 4", Price = 400, Stock = 10, CreatedDate = DateTime.UtcNow },
-                new() { Id = Guid.NewGuid(), Name = "Product 5", Price = 500, Stock = 10, CreatedDate = DateTime.UtcNow }
-            });
+            //await _productWriteRepository.AddRangeAsync(new()
+            //{
+            //    new() { Id = Guid.NewGuid(), Name = "Product 1", Price = 100, Stock = 10, CreatedDate = DateTime.UtcNow },
+            //    new() { Id = Guid.NewGuid(), Name = "Product 2", Price = 200, Stock = 10, CreatedDate = DateTime.UtcNow },
+            //    new() { Id = Guid.NewGuid(), Name = "Product 3", Price = 300, Stock = 10, CreatedDate = DateTime.UtcNow },
+            //    new() { Id = Guid.NewGuid(), Name = "Product 4", Price = 400, Stock = 10, CreatedDate = DateTime.UtcNow },
+            //    new() { Id = Guid.NewGuid(), Name = "Product 5", Price = 500, Stock = 10, CreatedDate = DateTime.UtcNow }
+            //});
 
+            //await _productWriteRepository.SaveAsync();
+
+            Product p = await _productReadRepository.GetByIdAsync("0d7531df-295e-4786-aac3-7ef68283a55f" , false);
+            p.Name = "test";
             await _productWriteRepository.SaveAsync();
+
         }
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(string id)

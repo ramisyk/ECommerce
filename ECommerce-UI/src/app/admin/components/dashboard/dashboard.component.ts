@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { BaseComponent } from 'src/app/base/base.component';
 import { AlertifyService, AlertifyMessagePosition, AlertifyMessageType } from 'src/app/services/admin/alertify.service';
 
 @Component({
@@ -6,9 +8,12 @@ import { AlertifyService, AlertifyMessagePosition, AlertifyMessageType } from 's
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent extends BaseComponent implements OnInit {
 
-  constructor(private _alertifyService: AlertifyService) { }
+  constructor(private _alertifyService: AlertifyService, spinner: NgxSpinnerService) { 
+    super(spinner)
+
+  }
 
   ngOnInit(): void {
   }

@@ -1,22 +1,29 @@
-<a routerLink="">Home</a> <br>
-<a routerLink="products">Products</a> <br>
-<a routerLink="carts">Carts</a><br>
-
-<a routerLink="admin">Admin</a>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" routerLink="">E-Ticaret</a>
+      <a class="navbar-brand" routerLink="">E-Commerce</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" routerLink="">Home</a>
           </li>
+          
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link active" aria-current="page" routerLink="products">Products</a>
           </li>
+  
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="carts">Cart</a>
+          </li>
+  
+          <li class="nav-item">
+          <button class="btn btn-outline-success" type="submit" routerLink="admin">Admin</button>
+          </li>
+  
+        <!-- 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown
@@ -27,10 +34,9 @@
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li>
+          </li> 
+        -->
+          
         </ul>
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -39,4 +45,15 @@
       </div>
     </div>
   </nav>
-<router-outlet></router-outlet>
+
+  <router-outlet></router-outlet>
+
+</div>
+
+
+
+
+
+
+
+

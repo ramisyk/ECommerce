@@ -1293,35 +1293,42 @@
     ]
   },
   "packageFolders": {
-    "/Users/ramisyuksel/.nuget/packages/": {}
+    "C:\\Users\\ramis\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Presentation/ECommerceAPI.WebAPI/ECommerceAPI.WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\ramis\\Desktop\\MyRepos\\ECommerce\\ECommerce-API\\Presentation\\ECommerceAPI.WebAPI\\ECommerceAPI.WebAPI.csproj",
       "projectName": "ECommerceAPI.WebAPI",
-      "projectPath": "/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Presentation/ECommerceAPI.WebAPI/ECommerceAPI.WebAPI.csproj",
-      "packagesPath": "/Users/ramisyuksel/.nuget/packages/",
-      "outputPath": "/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Presentation/ECommerceAPI.WebAPI/obj/",
+      "projectPath": "C:\\Users\\ramis\\Desktop\\MyRepos\\ECommerce\\ECommerce-API\\Presentation\\ECommerceAPI.WebAPI\\ECommerceAPI.WebAPI.csproj",
+      "packagesPath": "C:\\Users\\ramis\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ramis\\Desktop\\MyRepos\\ECommerce\\ECommerce-API\\Presentation\\ECommerceAPI.WebAPI\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/ramisyuksel/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\ramis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Core/ECommerceAPI.Application/ECommerceAPI.Application.csproj": {
-              "projectPath": "/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Core/ECommerceAPI.Application/ECommerceAPI.Application.csproj"
+            "C:\\Users\\ramis\\Desktop\\MyRepos\\ECommerce\\ECommerce-API\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj": {
+              "projectPath": "C:\\Users\\ramis\\Desktop\\MyRepos\\ECommerce\\ECommerce-API\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj"
             },
-            "/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Infrastructure/ECommerceAPI.Persistence/ECommerceAPI.Persistence.csproj": {
-              "projectPath": "/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Infrastructure/ECommerceAPI.Persistence/ECommerceAPI.Persistence.csproj"
+            "C:\\Users\\ramis\\Desktop\\MyRepos\\ECommerce\\ECommerce-API\\Infrastructure\\ECommerceAPI.Persistence\\ECommerceAPI.Persistence.csproj": {
+              "projectPath": "C:\\Users\\ramis\\Desktop\\MyRepos\\ECommerce\\ECommerce-API\\Infrastructure\\ECommerceAPI.Persistence\\ECommerceAPI.Persistence.csproj"
             }
           }
         }
@@ -1365,7 +1372,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.201/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

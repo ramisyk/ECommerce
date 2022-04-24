@@ -1,5 +1,6 @@
 ﻿ using ECommerceAPI.Application.Abstractions;
 using ECommerceAPI.Application.Repositories;
+using ECommerceAPI.Application.ViewModels.Products;
 using ECommerceAPI.Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,38 +11,63 @@ namespace ECommerceAPI.WebAPI.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly IProductService _productService;
         private readonly IProductReadRepository _productReadRepository;
         private readonly IProductWriteRepository _productWriteRepository;
 
-        private readonly IOrderWriteRepository _orderWriteRepository;
-        private readonly IOrderReadRepository _orderReadRepository;
-        private readonly ICustomerWriteRepository _customerWriteRepository;
-
+        
         public ProductsController(IProductService productService, IProductReadRepository productReadRepository, IProductWriteRepository productWriteRepository, IOrderWriteRepository orderWriteRepository, ICustomerWriteRepository customerWriteRepository, IOrderReadRepository orderReadRepository)
         {
-            _productService = productService;
             _productReadRepository = productReadRepository;
             _productWriteRepository = productWriteRepository;
-            _orderWriteRepository = orderWriteRepository;
-            _customerWriteRepository = customerWriteRepository;
-            _orderReadRepository = orderReadRepository;
+
         }
 
         [HttpGet]
-        public async Task GetProduct()
+        public async Task<IActionResult> Get()
         {
-            Order order = _orderReadRepository.GetByIdAsync("58183ce8-e294-4d09-a4d7-88e6217d552d").Result;
-
-            order.Address = "Ankara";
-
-            await _orderWriteRepository.SaveAsync();
+            return Ok(_productReadRepository.GetAll(false));
         }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(string id)
         {
-            Product product = await _productReadRepository.GetByIdAsync(id);
-            return Ok(product);
+            return Ok(await _productReadRepository.GetByIdAsync(id, false));
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Post(VM_Create_Product model)
+        {
+            await _productWriteRepository.AddAsync(new()
+            {
+                Name = model.Name,
+                Price = model.Price,
+                Stock = model.Stock
+            });
+            await _productWriteRepository.SaveAsync();
+            return StatusCode((int)System.Net.HttpStatusCode.Created);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Put(VM_Update_Product model)
+        {
+            Product product = await _productReadRepository.GetByIdAsync(model.Id);
+            product.Stock = model.Stock;
+            product.Name = model.Name;
+            product.Price = model.Price;
+
+            //Veri contextten gelip track edildiği için update fonksiyonunu çağırmaksızın save change i çağırabiliriz.
+            await _productWriteRepository.SaveAsync();
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            await _productWriteRepository.RemoveAsync(id);
+            await _productWriteRepository.SaveAsync();
+            return Ok();
+        }
+
+
     }
 }

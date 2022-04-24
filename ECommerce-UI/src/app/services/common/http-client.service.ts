@@ -64,4 +64,3 @@ export class RequestParameters {
   baseUrl?: string;
   fullEndPoint?: string;
 }
-

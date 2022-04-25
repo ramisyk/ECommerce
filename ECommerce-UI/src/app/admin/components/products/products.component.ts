@@ -17,13 +17,14 @@ export class ProductsComponent extends BaseComponent implements OnInit {
   ngOnInit(): void {
     // this.showSpinner(SpinnerType.BallAtom);
 
-    this.httpClientService.get({
-      baseUrl: "https://jsonplaceholder.typicode.com",
-      controller: "posts"
-    }).subscribe(data => console.log(data))
     // this.httpClientService.get({
-    //   controller: "products"
+    //   baseUrl: "https://jsonplaceholder.typicode.com",
+    //   controller: "posts"
     // }).subscribe(data => console.log(data))
+
+    this.httpClientService.get({
+      controller: "products"
+    }).subscribe(data => console.log(data))
   }
 
 }

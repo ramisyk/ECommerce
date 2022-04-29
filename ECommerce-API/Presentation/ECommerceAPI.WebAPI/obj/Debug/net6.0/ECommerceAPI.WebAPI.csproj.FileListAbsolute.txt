@@ -40,3 +40,6 @@
 /Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Presentation/ECommerceAPI.WebAPI/obj/Debug/net6.0/ECommerceAPI.WebAPI.pdb
 /Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Presentation/ECommerceAPI.WebAPI/obj/Debug/net6.0/ECommerceAPI.WebAPI.genruntimeconfig.cache
 /Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Presentation/ECommerceAPI.WebAPI/obj/Debug/net6.0/ref/ECommerceAPI.WebAPI.dll
+/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Presentation/ECommerceAPI.WebAPI/bin/Debug/net6.0/FluentValidation.dll
+/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Presentation/ECommerceAPI.WebAPI/bin/Debug/net6.0/FluentValidation.AspNetCore.dll
+/Users/ramisyuksel/Desktop/MyRepos/ECommerce/ECommerce-API/Presentation/ECommerceAPI.WebAPI/bin/Debug/net6.0/FluentValidation.DependencyInjectionExtensions.dll

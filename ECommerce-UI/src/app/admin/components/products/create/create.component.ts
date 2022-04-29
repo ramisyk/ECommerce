@@ -40,5 +40,4 @@ export class CreateComponent extends BaseComponent implements OnInit {
       });
     });
   }
-
 }

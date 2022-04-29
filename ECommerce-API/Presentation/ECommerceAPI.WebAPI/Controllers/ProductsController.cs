@@ -67,7 +67,5 @@ namespace ECommerceAPI.WebAPI.Controllers
             await _productWriteRepository.SaveAsync();
             return Ok();
         }
-
-
     }
 }

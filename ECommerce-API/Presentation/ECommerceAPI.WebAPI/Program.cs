@@ -1,6 +1,7 @@
 ﻿using ECommerceAPI.Application.Validators.Products;
 using ECommerceAPI.Persistence;
 using FluentValidation.AspNetCore;
+using ECommerceAPI.Infrastructure.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,7 @@ builder.Services.AddPersistanceServices();
 //Recive and allow all requests from all addresses
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
 
-builder.Services.AddControllers()
+builder.Services.AddControllers(options => options.Filters.Add<ValidationFilter>())
     .AddFluentValidation(configuration => configuration.RegisterValidatorsFromAssemblyContaining<CreateProductValidator>())
     .ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true); //bu satır olmazsa controller dahi çalışmaz 
 

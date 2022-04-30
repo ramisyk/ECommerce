@@ -19,7 +19,7 @@ namespace ECommerceAPI.Infrastructure.Filters
 
                 context.Result = new BadRequestObjectResult(errors);
             }
-            await next()Ş;
+            await next();
         }
     }
 }

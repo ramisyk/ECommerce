@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BaseComponent, SpinnerType } from 'src/app/base/base.component';
 import { Create_Product } from 'src/app/contracts/create-product';
@@ -14,7 +14,7 @@ export class CreateComponent extends BaseComponent implements OnInit {
 
   constructor(
     spiner: NgxSpinnerService,
-    private alrtify: AlertifyService,
+    private alertify: AlertifyService,
     private _productService: ProductService
     ) {
       super(spiner);
@@ -22,22 +22,32 @@ export class CreateComponent extends BaseComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  @Output() createdProduct: EventEmitter<Create_Product> = new EventEmitter();
 
   create(name: HTMLInputElement, stock: HTMLInputElement, price: HTMLInputElement) {
     this.showSpinner(SpinnerType.BallAtom);
+    const create_product: Create_Product = new Create_Product();
+    create_product.name = name.value;
+    create_product.stock = parseInt(stock.value);
+    create_product.price = parseFloat(price.value);
 
-    const createProduct: Create_Product = new Create_Product();
-    createProduct.name = name.value;
-    createProduct.stock = parseInt(stock.value);
-    createProduct.price = parseFloat(price.value);
+    //kontroller burada yeniden yapılacak (reactive form entegre edilecek)
 
-    this._productService.createProduct(createProduct, () => {
+    this._productService.createProduct(create_product, () => {
       this.hideSpinner(SpinnerType.BallAtom);
-      this.alrtify.message("Ürün başarı ile eklendi!", {
+      this.alertify.message("Ürün başarıyla eklenmiştir.", {
         dismissOthers: true,
         messageType: AlertifyMessageType.Success,
-        messagePosition: AlertifyMessagePosition.BottomRight
+        messagePosition: AlertifyMessagePosition.TopRight
       });
+      // this.createdProduct.emit(create_product);
+    }, (errorMessage) => {
+      this.alertify.message(errorMessage,
+        {
+          dismissOthers: true,
+          messageType: AlertifyMessageType.Error,
+          messagePosition: AlertifyMessagePosition.TopRight
+        });
     });
   }
 }

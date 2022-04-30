@@ -8,6 +8,9 @@ import { ListComponent } from './list/list.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+
+
 @NgModule({
   declarations: [
     ProductsComponent,
@@ -20,6 +23,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatTableModule,
     RouterModule.forChild([
       { path: '', component: ProductsComponent }
     ])

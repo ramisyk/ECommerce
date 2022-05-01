@@ -12,14 +12,14 @@ import { ProductService } from 'src/app/services/common/models/product.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent extends BaseComponent implements OnInit {
+export class ListComponent extends BaseComponent implements OnInit  {
 
   displayedColumns: string[] = ['name', 'stock', 'price', 'createdDate', 'updatedDate'];
   dataSource: MatTableDataSource<List_Product> = null;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(spinner: NgxSpinnerService, private _productService: ProductService, private _alertifyService: AlertifyService) { super(spinner); }
-
+  
   async ngOnInit() {
     this.showSpinner(SpinnerType.BallAtom);
     const allProducts: List_Product[] = await this._productService.read(
@@ -34,5 +34,7 @@ export class ListComponent extends BaseComponent implements OnInit {
         });
       });
     this.dataSource = new MatTableDataSource<List_Product>(allProducts);
+    this.dataSource.paginator = this.paginator;
+
   }
 }

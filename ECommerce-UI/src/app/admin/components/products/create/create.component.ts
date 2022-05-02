@@ -40,7 +40,7 @@ export class CreateComponent extends BaseComponent implements OnInit {
         messageType: AlertifyMessageType.Success,
         messagePosition: AlertifyMessagePosition.TopRight
       });
-      // this.createdProduct.emit(create_product);
+      this.createdProduct.emit(create_product);
     }, (errorMessage) => {
       this.alertify.message(errorMessage,
         {

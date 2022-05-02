@@ -23,6 +23,7 @@
     <None Remove="FluentValidation" />
     <None Remove="FluentValidation.AspNetCore" />
     <None Remove="FluentValidation.DependencyInjectionExtensions" />
+    <None Remove="RequestParameters\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repositories\" />
@@ -33,6 +34,7 @@
     <Folder Include="ViewModels\Products\" />
     <Folder Include="Validators\" />
     <Folder Include="Validators\Products\" />
+    <Folder Include="RequestParameters\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.3" />

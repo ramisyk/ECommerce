@@ -20,21 +20,26 @@ export class ListComponent extends BaseComponent implements OnInit  {
 
   constructor(spinner: NgxSpinnerService, private _productService: ProductService, private _alertifyService: AlertifyService) { super(spinner); }
   
-  async ngOnInit() {
+  async getProducts() {
     this.showSpinner(SpinnerType.BallAtom);
-    const allProducts: List_Product[] = await this._productService.read(
-      () => {
-        this.hideSpinner(SpinnerType.BallAtom);
-      },
-      (errorMessage) => {
-        this._alertifyService.message("Hata verdi", {
-          dismissOthers: true,
-          messageType: AlertifyMessageType.Error,
-          messagePosition: AlertifyMessagePosition.TopRight
-        });
-      });
-    this.dataSource = new MatTableDataSource<List_Product>(allProducts);
-    this.dataSource.paginator = this.paginator;
-
+    const allProducts: { totalCount: number; products: List_Product[] } = await this._productService.read(this.paginator ? this.paginator.pageIndex : 0, this.paginator ? this.paginator.pageSize : 5, () => this.hideSpinner(SpinnerType.BallAtom), errorMessage => this._alertifyService.message(errorMessage, {
+      dismissOthers: true,
+      messageType: AlertifyMessageType.Error,
+      messagePosition: AlertifyMessagePosition.TopRight
+    }))
+    this.dataSource = new MatTableDataSource<List_Product>(allProducts.products);
+    this.paginator.length = allProducts.totalCount;
   }
+
+  async pageChanged() {
+    await this.getProducts();
+  }
+
+  async ngOnInit() {
+    await this.getProducts();
+  }
+
+
+
+  
 }

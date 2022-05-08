@@ -1,5 +1,6 @@
 import { Directive, ElementRef, EventEmitter, HostListener, Input, Output, Renderer2 } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { SpinnerType } from 'src/app/base/base.component';
 import { AlertifyService } from 'src/app/services/admin/alertify.service';
 import { HttpClientService } from 'src/app/services/common/http-client.service';
 import { ProductService } from 'src/app/services/common/models/product.service';
@@ -32,6 +33,7 @@ export class DeleteDirective {
 
   @HostListener("click")
   async onClicked() {
+    this.spinner.show(SpinnerType.BallAtom)
     const td: HTMLTableCellElement = this._element.nativeElement;
     await this.productService.delete(this.id);
     $(td.parentElement).fadeOut(500, () => {

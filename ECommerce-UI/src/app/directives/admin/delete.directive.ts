@@ -16,13 +16,12 @@ declare var $: any;
 export class DeleteDirective {
 
   constructor(
-    private _element: ElementRef,
     private _renderer: Renderer2,
+    private _element: ElementRef,
     private _httpClientService: HttpClientService,
     private spinner: NgxSpinnerService,
     public dialog: MatDialog,
     private alertifyService: AlertifyService,
-    private productService: ProductService
   ) {
     const img = _renderer.createElement("img");
     img.setAttribute("src", "../../../../../assets/images/delete.png");

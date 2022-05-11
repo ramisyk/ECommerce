@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxFileDropEntry } from 'ngx-file-drop';
+import { AlertifyService } from '../../admin/alertify.service';
+import { CustomToastrService } from '../../ui/custom-toastr.service';
+import { HttpClientService } from '../http-client.service';
 
 @Component({
   selector: 'app-file-upload',
@@ -7,7 +10,11 @@ import { NgxFileDropEntry } from 'ngx-file-drop';
   styleUrls: ['./file-upload.component.css'],
 })
 export class FileUploadComponent {
-  constructor() {}
+  constructor(
+    private _httpClientService: HttpClientService,
+    private _alertifyService: AlertifyService,
+    private _customToastrService: CustomToastrService
+  ) {}
 
   public files: NgxFileDropEntry[] = [];
 

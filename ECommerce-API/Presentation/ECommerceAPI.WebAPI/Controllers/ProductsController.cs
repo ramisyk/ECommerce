@@ -85,5 +85,11 @@ namespace ECommerceAPI.WebAPI.Controllers
             await _productWriteRepository.SaveAsync();
             return Ok();
         }
+
+        [HttpPost("[action]")]
+        public async Task<IActionResult> Upload()
+        {
+
+        }
     }
 }

@@ -25,4 +25,10 @@
   <ItemGroup>
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
 </Project>

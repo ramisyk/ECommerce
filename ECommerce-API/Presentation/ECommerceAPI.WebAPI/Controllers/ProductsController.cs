@@ -1,8 +1,9 @@
-﻿ using ECommerceAPI.Application.Abstractions;
+﻿using ECommerceAPI.Application.Abstractions;
 using ECommerceAPI.Application.Repositories;
 using ECommerceAPI.Application.RequestParameters;
 using ECommerceAPI.Application.ViewModels.Products;
 using ECommerceAPI.Domain.Entities;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,17 +15,18 @@ namespace ECommerceAPI.WebAPI.Controllers
     {
         private readonly IProductReadRepository _productReadRepository;
         private readonly IProductWriteRepository _productWriteRepository;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        
-        public ProductsController(IProductService productService, IProductReadRepository productReadRepository, IProductWriteRepository productWriteRepository, IOrderWriteRepository orderWriteRepository, ICustomerWriteRepository customerWriteRepository, IOrderReadRepository orderReadRepository)
+
+        public ProductsController(IProductReadRepository productReadRepository, IProductWriteRepository productWriteRepository, IWebHostEnvironment webHostEnvironment)
         {
             _productReadRepository = productReadRepository;
             _productWriteRepository = productWriteRepository;
-
+            _webHostEnvironment = webHostEnvironment;
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery]Pagination pagination)
+        public async Task<IActionResult> Get([FromQuery] Pagination pagination)
         {
             var totalCount = _productReadRepository.GetAll(false).Count();
             var products = _productReadRepository.GetAll(false).Skip(pagination.Page * pagination.Size).Take(pagination.Size).Select(
@@ -50,7 +52,7 @@ namespace ECommerceAPI.WebAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(VM_Create_Product model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
 
             }
@@ -89,7 +91,17 @@ namespace ECommerceAPI.WebAPI.Controllers
         [HttpPost("[action]")]
         public async Task<IActionResult> Upload()
         {
-            string uploadPath
+            string uploadPath = Path.Combine(_webHostEnvironment.WebRootPath, "resource/product-images");
+
+            foreach (IFormFile file in Request.Form.Files)
+            {
+                string fullPath = Path.Combine(uploadPath, $"{DateTime.Now.ToString()}{Path.GetExtension(file.FileName)}");
+
+                using FileStream fileStream = new(fullPath, FileMode.Create, FileAccess.Write, FileShare.None, 1600*1024, useAsync: false);
+                await file.CopyToAsync(fileStream);
+                await fileStream.FlushAsync();
+            }
+            return Ok();
         }
     }
 }

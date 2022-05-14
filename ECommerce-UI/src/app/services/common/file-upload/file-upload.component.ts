@@ -40,6 +40,7 @@ export class FileUploadComponent implements OnInit {
       queryString: this.options.queryString,
       headers: new HttpHeaders({ "responseType": "blob" })
     }, fileData).subscribe(data => { 
+      console.log(fileData)
       const message: string = "Files uploaded successfully"
       if (this.options.isAdminPage) {
         this._alertifyService.message(
@@ -84,8 +85,8 @@ export class FileUploadComponent implements OnInit {
 
   }
 
+  }
 
-}
 
 export class FileUploadOptions {
   controller?: string;

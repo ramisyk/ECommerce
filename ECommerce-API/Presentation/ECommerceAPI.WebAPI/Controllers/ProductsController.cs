@@ -89,7 +89,7 @@ namespace ECommerceAPI.WebAPI.Controllers
         [HttpPost("[action]")]
         public async Task<IActionResult> Upload()
         {
-
+            string uploadPath
         }
     }
 }

@@ -29,7 +29,6 @@ export class CreateComponent extends BaseComponent implements OnInit {
     controller: "products",
     explanation: "select",
     isAdminPage: true,
-
   }
   
   create(name: HTMLInputElement, stock: HTMLInputElement, price: HTMLInputElement) {

@@ -102,7 +102,7 @@ namespace ECommerceAPI.WebAPI.Controllers
             {
                 string fullPath = Path.Combine(uploadPath, $"{r.Next()}{Path.GetExtension(file.FileName)}");
 
-                using FileStream fileStream = new(fullPath, FileMode.Create, FileAccess.Write, FileShare.None, 1024 * 1024, useAsync: false);
+                using FileStream fileStream = new(fullPath, FileMode.Create, FileAccess.Write, FileShare.None);
                 await file.CopyToAsync(fileStream);
                 await fileStream.FlushAsync();
             }

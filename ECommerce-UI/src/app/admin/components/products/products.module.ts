@@ -32,10 +32,10 @@ import { FileUploadModule } from 'src/app/services/common/file-upload/file-uploa
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
-    FileUploadModule,
     RouterModule.forChild([
       { path: '', component: ProductsComponent }
     ]),
+    FileUploadModule
   ]
 })
 export class ProductsModule { }

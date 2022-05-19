@@ -27,9 +27,9 @@ export class CreateComponent extends BaseComponent implements OnInit {
   @Output() fileUploadOptions: Partial<FileUploadOptions> = {
     action: "upload",
     controller: "products",
-    explanation: "Select your files",
+    explanation: "select",
     isAdminPage: true,
-    accept: ".png, .jpg, .json"
+
   }
   
   create(name: HTMLInputElement, stock: HTMLInputElement, price: HTMLInputElement) {

@@ -16,6 +16,7 @@ import {
   ToastrMessagePosition,
   ToastrMessageType,
 } from '../../ui/custom-toastr.service';
+import { DialogService } from '../dialog.service';
 import { HttpClientService } from '../http-client.service';
 
 @Component({
@@ -30,7 +31,7 @@ export class FileUploadComponent {
     private _toastrService: CustomToastrService,
     private dialog: MatDialog,
     private _element: ElementRef,
-
+    private dialogService: DialogService
   ) {}
 
   public files: NgxFileDropEntry[];
@@ -45,68 +46,121 @@ export class FileUploadComponent {
         fileData.append(_file.name, _file, file.relativePath);
       });
     }
-
-    this.openDialog(async () => {
-      const td: HTMLTableCellElement = this._element.nativeElement;
-    
-      this._httpClientService
-      .post(
-        {
-          controller: this.options.controller,
-          action: this.options.action,
-          queryString: this.options.queryString,
-          headers: new HttpHeaders({ responseType: 'blob' }),
-        },
-        fileData
-      )
-      .subscribe(
-        (data) => {
-          const message: string = 'Dosyalar Başarıyla Yüklendi';
-          if (this.options.isAdminPage) {
-            this._alertifyService.message(message, {
-              dismissOthers: true,
-              messageType: AlertifyMessageType.Success,
-              messagePosition: AlertifyMessagePosition.TopRight,
-            });
-          } else {
-            this._toastrService.message(message, 'Success', {
-              messageType: ToastrMessageType.Success,
-              messagePosition: ToastrMessagePosition.TopRight,
-            });
+    this.dialogService.openDialog({
+      componentType: FileUploadDialogComponent,
+      data: FileUploadDialogState,
+      afterClosed: () => {
+        const td: HTMLTableCellElement = this._element.nativeElement;
+      
+        this._httpClientService
+        .post(
+          {
+            controller: this.options.controller,
+            action: this.options.action,
+            queryString: this.options.queryString,
+            headers: new HttpHeaders({ responseType: 'blob' }),
+          },
+          fileData
+        )
+        .subscribe(
+          (data) => {
+            const message: string = 'Dosyalar Başarıyla Yüklendi';
+            if (this.options.isAdminPage) {
+              this._alertifyService.message(message, {
+                dismissOthers: true,
+                messageType: AlertifyMessageType.Success,
+                messagePosition: AlertifyMessagePosition.TopRight,
+              });
+            } else {
+              this._toastrService.message(message, 'Success', {
+                messageType: ToastrMessageType.Success,
+                messagePosition: ToastrMessagePosition.TopRight,
+              });
+            }
+            console.log(fileData);
+          },
+          (errorResponse: HttpErrorResponse) => {
+            const message: string =
+              'Dosyalar Yüklenirken Bir Problemle Karşılaşıldı';
+            if (this.options.isAdminPage) {
+              this._alertifyService.message(message, {
+                dismissOthers: true,
+                messageType: AlertifyMessageType.Error,
+                messagePosition: AlertifyMessagePosition.TopRight,
+              });
+            } else {
+              this._toastrService.message(message, 'Error', {
+                messageType: ToastrMessageType.Error,
+                messagePosition: ToastrMessagePosition.TopRight,
+              });
+            }
           }
-          console.log(fileData);
-        },
-        (errorResponse: HttpErrorResponse) => {
-          const message: string =
-            'Dosyalar Yüklenirken Bir Problemle Karşılaşıldı';
-          if (this.options.isAdminPage) {
-            this._alertifyService.message(message, {
-              dismissOthers: true,
-              messageType: AlertifyMessageType.Error,
-              messagePosition: AlertifyMessagePosition.TopRight,
-            });
-          } else {
-            this._toastrService.message(message, 'Error', {
-              messageType: ToastrMessageType.Error,
-              messagePosition: ToastrMessagePosition.TopRight,
-            });
-          }
-        }
-      );
+        );
+      }
     })
+
+    // this.openDialog(async () => {
+    //   const td: HTMLTableCellElement = this._element.nativeElement;
+    
+    //   this._httpClientService
+    //   .post(
+    //     {
+    //       controller: this.options.controller,
+    //       action: this.options.action,
+    //       queryString: this.options.queryString,
+    //       headers: new HttpHeaders({ responseType: 'blob' }),
+    //     },
+    //     fileData
+    //   )
+    //   .subscribe(
+    //     (data) => {
+    //       const message: string = 'Dosyalar Başarıyla Yüklendi';
+    //       if (this.options.isAdminPage) {
+    //         this._alertifyService.message(message, {
+    //           dismissOthers: true,
+    //           messageType: AlertifyMessageType.Success,
+    //           messagePosition: AlertifyMessagePosition.TopRight,
+    //         });
+    //       } else {
+    //         this._toastrService.message(message, 'Success', {
+    //           messageType: ToastrMessageType.Success,
+    //           messagePosition: ToastrMessagePosition.TopRight,
+    //         });
+    //       }
+    //       console.log(fileData);
+    //     },
+    //     (errorResponse: HttpErrorResponse) => {
+    //       const message: string =
+    //         'Dosyalar Yüklenirken Bir Problemle Karşılaşıldı';
+    //       if (this.options.isAdminPage) {
+    //         this._alertifyService.message(message, {
+    //           dismissOthers: true,
+    //           messageType: AlertifyMessageType.Error,
+    //           messagePosition: AlertifyMessagePosition.TopRight,
+    //         });
+    //       } else {
+    //         this._toastrService.message(message, 'Error', {
+    //           messageType: ToastrMessageType.Error,
+    //           messagePosition: ToastrMessagePosition.TopRight,
+    //         });
+    //       }
+    //     }
+    //   );
+    // })
     
   }
 
-  openDialog(afterClosed: any): void {
-    const dialogRef = this.dialog.open(FileUploadDialogComponent, {
-      width: '250px',
-      data: FileUploadDialogState.Yes,
-    });
+  // openDialog(afterClosed: any): void {
+  //   const dialogRef = this.dialog.open(FileUploadDialogComponent, {
+  //     width: '250px',
+  //     data: FileUploadDialogState.Yes,
+  //   });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result == FileUploadDialogState.Yes) afterClosed();
-    });
-  }
+  //   dialogRef.afterClosed().subscribe((result) => {
+  //     if (result == FileUploadDialogState.Yes) afterClosed();
+  //   });
+  // }
+
 }
 
 export class FileUploadOptions {

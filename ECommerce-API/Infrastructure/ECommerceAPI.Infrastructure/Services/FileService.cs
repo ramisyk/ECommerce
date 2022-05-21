@@ -1,5 +1,6 @@
 ﻿using System;
 using ECommerceAPI.Application.Services;
+using ECommerceAPI.Infrastructure.Operations;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 
@@ -24,23 +25,48 @@ namespace ECommerceAPI.Infrastructure.Services
 
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 //todo log;
                 throw ex;
             }
         }
 
-        public Task<string> FileRenameAsync(string fileName)
+        private async Task<string> FileRenameAsync(string path, string fileName, bool first = true)
         {
+            string newFileName = await Task.Run<string>(async () =>
+            {
+                string extention = Path.GetExtension(fileName);
+                string newFileName = string.Empty;
 
+                if (first)
+                {
+                    string oldName = Path.GetFileNameWithoutExtension(fileName);
+                    newFileName = $"{NameOperations.CharacterRegulatory(oldName)}{extention}";
+                }
+                else
+                {
+                    newFileName = fileName;
+                }
+
+                if (File.Exists($"{path}\\{newFileName}"))
+                {
+                    return await FileRenameAsync(path, newFileName, false);
+                }
+                else
+                {
+                    return newFileName;
+                }
+            });
+
+            return newFileName;
         }
 
         public async Task<List<(string fileName, string path)>> FileUploadAsync(string path, IFormFileCollection files)
         {
             string uploadPath = Path.Combine(_webHostEnvironment.WebRootPath, path);
 
-            if(!Directory.Exists(uploadPath))
+            if (!Directory.Exists(uploadPath))
                 Directory.CreateDirectory(uploadPath);
 
             List<bool> results = new();

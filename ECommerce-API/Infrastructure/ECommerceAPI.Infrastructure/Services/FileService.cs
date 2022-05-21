@@ -33,7 +33,7 @@ namespace ECommerceAPI.Infrastructure.Services
 
         public Task<string> FileRenameAsync(string fileName)
         {
-            throw new NotImplementedException();
+
         }
 
         public async Task<List<(string fileName, string path)>> FileUploadAsync(string path, IFormFileCollection files)
@@ -43,13 +43,24 @@ namespace ECommerceAPI.Infrastructure.Services
             if(!Directory.Exists(uploadPath))
                 Directory.CreateDirectory(uploadPath);
 
+            List<bool> results = new();
+            List<(string fileName, string path)> datas = new();
+
             foreach (IFormFile file in files)
             {
                 string fileNewName = await FileRenameAsync(file.FileName);
                 bool result = await FileCopyAsync($"{uploadPath}\\{fileNewName}", file);
+
+                datas.Add((fileNewName, $"{uploadPath}\\{fileNewName}"));
+                results.Add(result);
             }
 
+            if (results.TrueForAll(r => r.Equals(true)))
+            {
+                return datas;
+            }
             return null;
+            //todo throw information to user when get an error during upload data
         }
     }
 }

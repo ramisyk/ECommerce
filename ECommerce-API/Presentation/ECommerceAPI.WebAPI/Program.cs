@@ -2,11 +2,13 @@
 using ECommerceAPI.Persistence;
 using FluentValidation.AspNetCore;
 using ECommerceAPI.Infrastructure.Filters;
+using ECommerceAPI.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddPersistanceServices();
+builder.Services.AddInfrastructureServices();
 
 //Recive and allow all requests from all addresses
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));

@@ -91,21 +91,7 @@ namespace ECommerceAPI.WebAPI.Controllers
         [HttpPost("[action]")]
         public async Task<IActionResult> Upload()
         {
-            string uploadPath = Path.Combine(_webHostEnvironment.WebRootPath, "resource/product-images");
-
-            if (!Directory.Exists(uploadPath))
-                Directory.CreateDirectory(uploadPath);
-
-
-            Random r = new();
-            foreach (IFormFile file in Request.Form.Files)
-            {
-                string fullPath = Path.Combine(uploadPath, $"{r.Next()}{Path.GetExtension(file.FileName)}");
-
-                using FileStream fileStream = new(fullPath, FileMode.Create, FileAccess.Write, FileShare.None);
-                await file.CopyToAsync(fileStream);
-                await fileStream.FlushAsync();
-            }
+            
             return Ok();
         }
     }

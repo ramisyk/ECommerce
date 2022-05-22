@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using ECommerceAPI.Application.Repositories;
 using ECommerceAPI.Persistence.Repositories;
+using ECommerceAPI.Application.Repositories.FileRepositories;
+using ECommerceAPI.Persistence.Repositories.FileRepositories;
 
 namespace ECommerceAPI.Persistence
 {
@@ -30,6 +32,17 @@ namespace ECommerceAPI.Persistence
             services.AddScoped<IProductWriteRepository, ProductWriteRepository>();
                      
             services.AddScoped<IProductService, ProductService>();
+
+            services.AddScoped<IFileReadRepository, FileReadRepository>();
+            services.AddScoped<IFileWriteRepository, FileWriteRepository>();
+
+
+            services.AddScoped<IProductImageFileReadRepository, ProductImageFileReadRepository>();
+            services.AddScoped<IProductImageFileWriteRepository, ProductImageFileWriteRepository>();
+
+            services.AddScoped<IInvoiceFileReadRepository, InvoiceFileReadRepository>();
+            services.AddScoped<IInvoiceFileWriteRepository, InvoiceFileWriteRepository>();
+
         }
     }
 }

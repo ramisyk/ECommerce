@@ -30,11 +30,13 @@
     <None Remove="Repositories\Customer\" />
     <None Remove="Repositories\OrderRepositories\" />
     <None Remove="Repositories\ProductRepositories\" />
+    <None Remove="Repositories\FileRepositories\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repositories\" />
     <Folder Include="Repositories\CustomerRepositories\" />
     <Folder Include="Repositories\OrderRepositories\" />
     <Folder Include="Repositories\ProductRepositories\" />
+    <Folder Include="Repositories\FileRepositories\" />
   </ItemGroup>
 </Project>

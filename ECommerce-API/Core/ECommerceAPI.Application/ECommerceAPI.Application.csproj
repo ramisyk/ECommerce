@@ -25,6 +25,9 @@
     <None Remove="RequestParameters\" />
     <None Remove="Services\" />
     <None Remove="Repositories\FileRepositories\" />
+    <None Remove="Abstraction\" />
+    <None Remove="Abstraction\Storage\" />
+    <None Remove="Abstraction\Storage\Local\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repositories\" />
@@ -37,6 +40,9 @@
     <Folder Include="RequestParameters\" />
     <Folder Include="Services\" />
     <Folder Include="Repositories\FileRepositories\" />
+    <Folder Include="Abstraction\" />
+    <Folder Include="Abstraction\Storage\" />
+    <Folder Include="Abstraction\Storage\Local\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.3" />
